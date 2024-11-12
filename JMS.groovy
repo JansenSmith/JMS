@@ -26,9 +26,19 @@ CSG sig = outsideParts.difference(insideParts).moveToCenter()
 
 //sig = sig.rotz(45).movey(3).movex(-0.75)
 
-sig = sig.mirrorx()
-sig = sig.toYMin().toXMin()
+sig = sig.toYMin().toXMax()
+sig = sig.movex(-10).movey(12)
+//sig = sig.mirrorx()
 
-println sig.totalZ
+//println sig.totalZ
+
+sig = sig.setColor(javafx.scene.paint.Color.DARKRED)
+			.setName("sig")
+			.addAssemblyStep(0, new Transform())
+			.setManufacturing({ toMfg ->
+				return toMfg
+						//.rotx(180)// fix the orientation
+						//.toZMin()//move it down to the flat surface
+			})
 
 return sig
