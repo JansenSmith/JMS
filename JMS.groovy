@@ -27,7 +27,7 @@ CSG sig = outsideParts.difference(insideParts).moveToCenter()
 //sig = sig.rotz(45).movey(3).movex(-0.75)
 
 sig = sig.toYMin().toXMax()
-sig = sig.movex(-10).movey(12)
+sig = sig.movex(-8).movey(12)
 //sig = sig.mirrorx()
 
 //println sig.totalZ
