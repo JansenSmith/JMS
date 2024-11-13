@@ -32,7 +32,7 @@ sig = sig.movex(-8).movey(12)
 
 //println sig.totalZ
 
-sig = sig.setColor(javafx.scene.paint.Color.DARKRED)
+sig = sig.setColor(javafx.scene.paint.Color.DEEPPINK)
 			.setName("sig")
 			.addAssemblyStep(0, new Transform())
 			.setManufacturing({ toMfg ->
