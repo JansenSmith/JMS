@@ -1,6 +1,8 @@
 import eu.mihosoft.vrl.v3d.*
 import eu.mihosoft.vrl.v3d.svg.SVGLoad
 
+def depth = 0.48
+
 // import sig SVG
 File f = ScriptingEngine
 	.fileFromGit(
@@ -17,10 +19,10 @@ HashMap<String,List<Polygon>> polygonsByLayer = s.toPolygons()
 HashMap<String,ArrayList<CSG>> csgByLayers = s.extrudeLayers(10)
 // extrude just one layer to 10mm
 // The string "1-holes" represents the layer name in Inkscape
-def insideParts = s.extrudeLayerToCSG(0.24,"insides")
+def insideParts = s.extrudeLayerToCSG(depth,"insides")
 // seperate holes and outsides using layers to differentiate
 // The string "2-outsides" represents the layer name in Inkscape
-def outsideParts = s.extrudeLayerToCSG(0.24,"outside")
+def outsideParts = s.extrudeLayerToCSG(depth,"outside")
 
 CSG sig = outsideParts.difference(insideParts).moveToCenter()
 
