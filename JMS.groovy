@@ -1,7 +1,7 @@
 import eu.mihosoft.vrl.v3d.*
 import eu.mihosoft.vrl.v3d.svg.SVGLoad
 
-def depth = 0.48
+def depth = 0.4
 
 // import sig SVG
 File f = ScriptingEngine
