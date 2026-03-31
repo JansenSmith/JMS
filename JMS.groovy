@@ -22,7 +22,8 @@ HashMap<String,ArrayList<CSG>> csgByLayers = s.extrudeLayers(10)
 def insideParts = s.extrudeLayerToCSG(depth,"insides")
 // seperate holes and outsides using layers to differentiate
 // The string "2-outsides" represents the layer name in Inkscape
-def outsideParts = s.extrudeLayerToCSG(depth,"outside")
+// outer polygon has CW winding so SVGLoad extrudes it to depth+1; rescale to depth
+def outsideParts = s.extrudeLayerToCSG(depth,"outside").toZMin().scaleToMeasurmentZ(depth)
 
 println "JMS: insideParts.totalZ=" + insideParts.totalZ + " outsideParts.totalZ=" + outsideParts.totalZ
 
