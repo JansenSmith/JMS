@@ -24,6 +24,8 @@ def insideParts = s.extrudeLayerToCSG(depth,"insides")
 // The string "2-outsides" represents the layer name in Inkscape
 def outsideParts = s.extrudeLayerToCSG(depth,"outside")
 
+println "JMS: insideParts.totalZ=" + insideParts.totalZ + " outsideParts.totalZ=" + outsideParts.totalZ
+
 CSG sig = outsideParts.difference(insideParts).moveToCenter()
 
 //sig = sig.rotz(45).movey(3).movex(-0.75)
@@ -32,7 +34,7 @@ sig = sig.toYMin().toXMax()
 sig = sig.movex(-8).movey(12)
 //sig = sig.mirrorx()
 
-//println sig.totalZ
+println "JMS: sig.totalZ=" + sig.totalZ
 
 sig = sig.setColor(javafx.scene.paint.Color.DEEPPINK)
 			.setName("sig")
